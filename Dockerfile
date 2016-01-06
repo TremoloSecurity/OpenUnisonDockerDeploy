@@ -30,5 +30,5 @@ RUN /usr/local/tomcat/bin/preProcConfig.py /tmp/unison.xml /etc/openunison/uniso
     /usr/local/tomcat/bin/preProcConfig.py /tmp/server.xml /usr/local/tomcat/conf/server.xml
 
 #Uncomment if using provisioning web services
-ENV OPENUNISON_WS_WEBXML https://raw.githubusercontent.com/TremoloSecurity/OpenUnison/1.0.6-Dev/unison/open-unison-webapp-webservices/src/main/webapp/WEB-INF/web.xml
-RUN curl $OPENUNISON_WS_WEBXML -o /usr/local/tomcat/webapps/ROOT/WEB-INF/web.xml
+#ENV OPENUNISON_WS_WEBXML https://raw.githubusercontent.com/TremoloSecurity/OpenUnison/1.0.6-Dev/unison/open-unison-webapp-webservices/src/main/webapp/WEB-INF/web.xml
+#RUN curl $OPENUNISON_WS_WEBXML -o /usr/local/tomcat/webapps/ROOT/WEB-INF/web.xml
