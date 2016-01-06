@@ -139,9 +139,6 @@
       <init>
         <!-- Comma seperated list of CRLs to check -->
         <param name="crl.names" value=""/>
-        <!-- Extracts can be used to get attributes out of a certificate besides the subject dn and subject alternative names -->
-        <!-- Must implement com.tremolosecurity.proxy.auth.CertificateExtractSubjectAttribute, may be listed multiple times -->
-        <param name="extracts" value="" />
       </init>
       <params>
       </params>

@@ -3,7 +3,7 @@ FROM tremolosecurity/openunison:1.0.6
 MAINTAINER Tremolo Security, Inc. - Docker <docker@tremolosecurity.com>
 
 #Network Configuration
-ENV OPENUNISON_HOST 192.168.99.100
+ENV OPENUNISON_HOST 192.168.99.101
 ENV OPENUNISON_PT_PORT 8080
 ENV OPENUNISON_EXT_PT_PORT 8888
 ENV OPENUNISON_ENC_PORT 8443
