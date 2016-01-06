@@ -1,0 +1,7 @@
+com.tremolosecurity.openunison.forceToSSL=#[OPENUNISON_FORCE_TO_ENC]
+com.tremolosecurity.openunison.openPort=#[OPENUNISON_PT_PORT]
+com.tremolosecurity.openunison.securePort=#[OPENUNISON_ENC_PORT]
+com.tremolosecurity.openunison.externalOpenPort=#[OPENUNISON_EXT_PT_PORT]
+com.tremolosecurity.openunison.externalSecurePort=#[OPENUNISON_EXT_ENC_PORT]
+#Uncomment and set for production deployments
+com.tremolosecurity.openunison.activemqdir=/var/lib/unison-activemq
