@@ -43,3 +43,25 @@ $ docker run -ti -p 8080:8080 -p 8443:8443 local/openunison:1.0.6
 ```
 
 Once the image is running, it can be accessed by going to https://host:8443/ where host is what you specified for the OPENUNISON_HOST environment variable in the Dockerfile.  The default username and password is test/test.
+
+## Configuring OpenUnison
+
+OpenUnison is configured via the con/unison.xml file and the conf/myvd.conf file.  When seting up the configurations for these files, the /usr/local/tomcat/bin/preProcConfig.py script is called to replace anything between #[] with its value for an environment variable.  For instance #[OPENUNISON_HOST] will be replaced with the value of the environment variable OPENUNISON_HOST.  This can be used to parameterize the configuration.
+
+## Environment Variables
+
+The following environment variables are defined in the Dockerfile
+
+| Environment Variable | Description | Notes |
+| -------------------- | ----------- | ----- |
+| OPENUNISON_HOST      | The host name port of the URL for accessing OpenUnison and OpenUnison protected applications | For instance if accessing a protected application is https://host.domain.com/app then this variable should be set to OPENUNISON_HOST |
+| OPENUNISON_PT_PORT   | The plain text port OpenUnison is running on | This will be configured on Tomcat |
+| OPENUNISON_EXT_PT_PORT | The port that URLs the user will enter their browser will have. |  This will often be the port on a load balancer |
+| OPENUNISON_ENC_PORT | The encrypted port OpenUnison is running on | This will be configured on Tomcat |
+| OPENUNISON_EXT_ENC_PORT | The port that URLs the user will enter their browser will have. |  This will often be the port on a load balancer |
+| OPENUNISON_FORCE_TO_ENC | If set to true, OpenUnison will allways send users to HTTPS if accessed via HTTP | true or false |
+| OPENUNISON_TLS_KEYALIAS | The name of the certificate Tomcat will use for its TLS listener in the conf/unisonKeystore.jks file | |
+| OPENUNISON_SESSION_KEY | The alias of the security key in conf/unisonKeystore.jks used to encrypt user sessions | MUST be AES256 |
+| OPENUNISON_KEYSTORE_PASSWORD | The password for conf/unisonKeystore.jks | |
+
+
