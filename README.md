@@ -48,6 +48,8 @@ Once the image is running, it can be accessed by going to https://host:8443/ whe
 
 OpenUnison is configured via the con/unison.xml file and the conf/myvd.conf file.  When seting up the configurations for these files, the /usr/local/tomcat/bin/preProcConfig.py script is called to replace anything between #[] with its value for an environment variable.  For instance #[OPENUNISON_HOST] will be replaced with the value of the environment variable OPENUNISON_HOST.  This can be used to parameterize the configuration.
 
+For details on how to configure OpenUnison, see OpenUnison's documentation - https://www.tremolosecurity.com/docs/tremolosecurity-docs/1.0.6/openunison/openunison.html
+
 ## Environment Variables
 
 The following environment variables are defined in the Dockerfile
