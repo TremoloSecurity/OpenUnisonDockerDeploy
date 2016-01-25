@@ -66,9 +66,9 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector port="$[openunison.pt.port]" protocol="HTTP/1.1"
+<Connector port="${openunison.pt.port}" protocol="HTTP/1.1"
                connectionTimeout="20000"
-               redirectPort="8443" />
+               redirectPort="${openunison.enc.port}" />
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -82,10 +82,10 @@
          OpenSSL style configuration is required as described in the APR/native
          documentation -->
 
-    <Connector port="#[OPENUNISON_ENC_PORT]" protocol="org.apache.coyote.http11.Http11NioProtocol"
+     <Connector port="${openunison.enc.port}" protocol="org.apache.coyote.http11.Http11NioProtocol"
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
-               clientAuth="want" sslProtocol="TLS" keystoreFile="/etc/openunison/unisonKeyStore.jks" keystoreType="JCEKS" keystorePass="#[OPENUNISON_KEYSTORE_PASSWORD]" keyAlias="#[OPENUNISON_TLS_KEYALIAS]"/>
-
+               clientAuth="want" sslProtocol="TLS" keystoreFile="/etc/openunison/unisonKeyStore.jks" keystoreType="JCEKS" keystorePass="${openunison.ks.password}" keyAlias="${openunison.tls.keyalias}"
+               truststoreFile="/etc/openunison/unisonKeyStore.jks" truststoreType="JCEKS"/>
 
     <!-- Define an AJP 1.3 Connector on port 8009 -->
     <!-- <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" /> -->
