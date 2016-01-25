@@ -31,7 +31,7 @@ $ keytool -genseckey -storetype JCEKS -alias session-unison -keyalg AES -keysize
 
 ## Update the Environment Variables
 
-The OpenUnison deployment process relies on some environment variables to make the initial configuration easier.  When building the image for the first time, if you used the same values from the environment variables when creating the keystore, the only setting that must be set is the OPENUNISON_HOST environment variable.  This should be whatever the host port of the url will be when accessing OpenUnison.
+The OpenUnison deployment process relies on some environment variables and system properties to make the initial configuration easier.  When building the image for the first time, if you used the same values from the environment variables when creating the keystore, the only setting that must be set is the OPENUNISON_HOST environment variable.  This should be whatever the host port of the url will be when accessing OpenUnison.
 
 ## Build and Run
 
@@ -61,8 +61,15 @@ The following environment variables are defined in the Dockerfile
 | OPENUNISON_EXT_PT_PORT | The port that URLs the user will enter their browser will have. |  This will often be the port on a load balancer |
 | OPENUNISON_EXT_ENC_PORT | The port that URLs the user will enter their browser will have. |  This will often be the port on a load balancer |
 | OPENUNISON_FORCE_TO_ENC | If set to true, OpenUnison will allways send users to HTTPS if accessed via HTTP | true or false |
-| OPENUNISON_TLS_KEYALIAS | The name of the certificate Tomcat will use for its TLS listener in the conf/unisonKeystore.jks file | |
 | OPENUNISON_SESSION_KEY | The alias of the security key in conf/unisonKeystore.jks used to encrypt user sessions | MUST be AES256 |
-| OPENUNISON_KEYSTORE_PASSWORD | The password for conf/unisonKeystore.jks | |
 
+## System Properties
 
+Tomcat's server.xml can only be customized via system properties, but OpenUnison can be customized with both environment vairables and system properties.  The system properties are set via the JAVA_OPTS environment variable.  The following system properties are defined in the Dockerfile:
+
+| System Properties | Description | Notes |
+| ----------------- | ----------- | ----- |
+| openunison.pt.port | The plain text port OpenUnison is running on | This will be configured on Tomcat |
+| openunison.enc.port | The encrypted port OpenUnison is running on | This will be configured on Tomcat |
+| openunison.tls.keyalias | The name of the certificate Tomcat will use for its TLS listener in the conf/unisonKeystore.jks file | |
+| openunison.ks.password | The password for conf/unisonKeystore.jks | |
