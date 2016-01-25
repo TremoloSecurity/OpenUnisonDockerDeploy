@@ -56,10 +56,9 @@ The following environment variables are defined in the Dockerfile
 
 | Environment Variable | Description | Notes |
 | -------------------- | ----------- | ----- |
+| JAVA_OPTS            | the plaintext port and encrypted port is set here in order to share between OpenUnison and Tomcat | |
 | OPENUNISON_HOST      | The host name port of the URL for accessing OpenUnison and OpenUnison protected applications | For instance if accessing a protected application is https://host.domain.com/app then this variable should be set to OPENUNISON_HOST |
-| OPENUNISON_PT_PORT   | The plain text port OpenUnison is running on | This will be configured on Tomcat |
 | OPENUNISON_EXT_PT_PORT | The port that URLs the user will enter their browser will have. |  This will often be the port on a load balancer |
-| OPENUNISON_ENC_PORT | The encrypted port OpenUnison is running on | This will be configured on Tomcat |
 | OPENUNISON_EXT_ENC_PORT | The port that URLs the user will enter their browser will have. |  This will often be the port on a load balancer |
 | OPENUNISON_FORCE_TO_ENC | If set to true, OpenUnison will allways send users to HTTPS if accessed via HTTP | true or false |
 | OPENUNISON_TLS_KEYALIAS | The name of the certificate Tomcat will use for its TLS listener in the conf/unisonKeystore.jks file | |
